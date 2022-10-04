@@ -23,7 +23,7 @@ export default function Home() {
           />
           <h1>hi im ryan</h1>
 
-          <p>Here's a bio about me, because this website is about me. Here are some things im working on: </p>
+          <p>Here&apos;s a bio about me, because this website is about me. Here are some things im working on: </p>
           
           <ul>
             <li>coding</li> 
@@ -37,7 +37,7 @@ export default function Home() {
       </main>
 
       <div className={styles.sidebar}>
-        <p>What's up </p>
+        <p>What&apos;s up </p>
       </div>
 
     </div>
