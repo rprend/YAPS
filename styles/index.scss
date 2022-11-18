@@ -2,9 +2,23 @@
   display: flex;
   margin: 0 140px;
 
-  .left-bar {
+  .sidebar {
     margin-top: 50px;
     width: 100px;
+    line-height: 1.5;
+
+    a {
+      color: black;
+
+      &.selected {
+        color: red;
+        text-decoration: wavy underline;
+      }
+    }
+
+    .sidebar-links {
+      padding-top: 10px;
+    }
   }
 
   .ryan-image {
@@ -16,4 +30,21 @@
     margin-top: 20px;
   }
 
+  .category {
+    .details {
+      margin: 10px 30px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+a {
+  color: blue;
+
+  &:hover {
+    text-decoration: wavy underline;
+  }
 }
