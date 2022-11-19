@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import ryan from '../public/ryan.jpg'
 import { PageType } from './pages'
 import classnames from 'classnames'
+import Link from 'next/link'
 
 export interface SidebarProps {
   setPage(page: PageType): void
@@ -32,10 +32,12 @@ export default function Sidebar(props: SidebarProps): JSX.Element {
           onClick={() => changePage('contact')}
           className={classnames({selected: props.page === 'contact'})}
         >contact</a></div>
-        <div><a
+        <div>
+          <a
           onClick={() => changePage('blog')}
           className={classnames({selected: props.page === 'blog'})}
-        >blog</a></div>
+        >blog</a>
+        </div>
       </div>
     </div>
   )

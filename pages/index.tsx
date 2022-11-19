@@ -1,8 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useState } from 'react'
 import { Blog } from '../components/blog'
-import { Category } from '../components/category'
 import { HomePage } from '../components/homepage'
 import { PageType } from '../components/pages'
 import Sidebar from '../components/sidebar'
