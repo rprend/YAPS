@@ -16,9 +16,8 @@ export function Category(props: CategoryProps): JSX.Element {
   return (
     <div className={`category ${props.name}`}>
       <h2>{props.name}</h2>
-      <p>Here&apos;s some stuff about <a onClick={categoryClick}>{props.name}</a></p>
+      <p className={classnames({"expanded": !hidingDetails})}><a onClick={categoryClick}>{props.name} details</a></p>
       <div className={classnames('details', { 'hidden': hidingDetails })}>
-        <p>{props.name}</p>
         {props.children}
       </div>
     </div>

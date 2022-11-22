@@ -2,6 +2,19 @@
   display: flex;
   margin: 0 140px;
 
+  .terminal {
+    width: 400px;
+    height: 175px;
+    background-color: #000;
+    color: white
+  }
+
+  .homepage {
+    .expanded {
+      text-decoration: wavy underline;
+    }
+  }
+
   .sidebar {
     margin-top: 50px;
     width: 100px;
