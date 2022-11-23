@@ -3,7 +3,11 @@ interface Pixel {
   y: number
 }
 
+// Mouse is the up to date mouse position. Last mouse the up to date previous mouse position.
 let mouse: Pixel, last_mouse: Pixel
+// Draw is the pixel position to draw at currently. last_draw is the previous. Since mousemove listeners are much more frequent
+// than the update loop, we need to keep track of this separately.
+let draw: Pixel, last_draw: Pixel
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
 
@@ -66,13 +70,13 @@ function connectPixels(prev, curr) {
 
 function update() {
   const hex = "#9342f5"
-
+  draw = mouse
   if (drawing) {
     ctx.fillStyle = hex
     ctx.strokeStyle = hex
-    connectPixels(last_mouse, mouse)
+    connectPixels(last_draw, draw)
   }
-
+  last_draw = draw
   requestAnimationFrame(update)
 }
 
