@@ -29,3 +29,7 @@ function update() {
 
   requestAnimationFrame(update)
 }
+
+export function clear_canvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+}
