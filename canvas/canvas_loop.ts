@@ -29,28 +29,21 @@ let subscribed_to_events = false
 function subscribeToEvents(): void {
   if (subscribed_to_events) return
 
-  canvas.addEventListener('mousemove', (e => {
+  canvas.addEventListener('pointermove', (e => {
     if (mouse) last_mouse = mouse
     mouse = {x: e.offsetX, y: e.offsetY}
   }))
 
-  canvas.addEventListener('click', (e => {
+  canvas.addEventListener('pointerdown', (e => {
     if (canvas_mode === "Pencil") canvas_mode = null
     else canvas_mode = "Pencil"
-    e.preventDefault()
   }))
 
-  canvas.addEventListener('touchstart', (e => {
-    drawing_touch = true
-    e.preventDefault()
-  }))
-
-  canvas.addEventListener('touchend', (e => {
+  canvas.addEventListener('pointerup', (e => {
     drawing_touch = false
 
-    // This needs an offset from the pageX and Y to work properly.
     if (mouse) last_mouse = mouse
-    mouse = {x: e.targetTouches[0].pageX, y: e.targetTouches[0].pageY}
+    mouse = {x: e.offsetX, y: e.offsetY}
 
     e.preventDefault()
   }))
