@@ -9,6 +9,6 @@ export default function Terminal() {
   })
 
   return (
-    <canvas className="terminal"></canvas>
+    <div><canvas className="terminal"></canvas></div>
   )
 }
