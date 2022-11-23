@@ -1,22 +1,36 @@
-let mouseX, mouseY
+let mouseX, mouseY, lastX, lastY: number
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
+
+let drawing = false
+
+let subscribed_to_events = false
+/**
+ * Be careful not to subscribe twice cause React strict mode will render and run useEffects twice.
+ */
+function subscribeToEvents(): void {
+  if (subscribed_to_events) return
+
+  canvas.addEventListener('mousemove', (e => {
+    lastX = mouseX
+    lastY = mouseY
+    mouseX = e.offsetX
+    mouseY = e.offsetY
+  }))
+
+  canvas.addEventListener('click', (e => {
+    drawing = !drawing
+  }))
+
+  subscribed_to_events = true
+}
 
 export default function init() {
   // Can we assume guarantee that there is only one Element with this class?
   canvas = document.getElementsByClassName("terminal").item(0) as HTMLCanvasElement
   ctx = canvas.getContext("2d")
 
-  console.log("apprived")
-  canvas.addEventListener('mousemove', (e => {
-    mouseX = e.offsetX
-    mouseY = e.offsetY
-    console.log(e)
-  }))
-
-  canvas.addEventListener('click', (e => {
-    console.log('click')
-  }))
+  subscribeToEvents()
 
   requestAnimationFrame(update)
 }
@@ -24,8 +38,10 @@ export default function init() {
 function update() {
   const hex = "#9342f5"
 
-  ctx.fillStyle = hex
-  ctx.fillRect(mouseX, mouseY, 2, 2)
+  if (drawing) {
+    ctx.fillStyle = hex
+    ctx.fillRect(mouseX, mouseY, 2, 2)
+  }
 
   requestAnimationFrame(update)
 }
