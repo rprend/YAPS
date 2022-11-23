@@ -33,8 +33,7 @@ export default function Home(): JSX.Element {
           <Contact showing={Page === 'contact'}></Contact>
         </div>
       </main>
-
-
   </>
   )
+
 }

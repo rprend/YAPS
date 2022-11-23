@@ -1,15 +1,14 @@
-import { MouseEvent } from "react";
-
-function update() {
-
-}
+import { useEffect } from "react"
+import canvas_loop from "../canvas/canvas_loop"
 
 export default function Terminal() {
-  function handleClick(event: MouseEvent<HTMLCanvasElement, globalThis.MouseEvent>) {
-    console.log(event);
-  }
+  useEffect(() => {
+    canvas_loop()
+    console.log("Component did mount")
+    // console.log(document.getElementsByClassName("terminal"))
+  })
 
   return (
-    <canvas className="terminal" onClick={(e) => handleClick(e)}></canvas>
+    <canvas className="terminal"></canvas>
   )
 }
