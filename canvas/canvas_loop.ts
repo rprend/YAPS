@@ -3,6 +3,15 @@ interface Pixel {
   y: number
 }
 
+type CanvasMode = "Pencil" | "Eraser" | null
+
+let canvas_mode: CanvasMode = null
+
+const canvasHandlers: Record<CanvasMode, () => void> = {
+  "Pencil": pencilMode,
+  "Eraser": () => {}
+}
+
 // Mouse is the up to date mouse position. Last mouse the up to date previous mouse position.
 let mouse: Pixel, last_mouse: Pixel
 // Draw is the pixel position to draw at currently. last_draw is the previous. Since mousemove listeners are much more frequent
@@ -11,7 +20,7 @@ let draw: Pixel, last_draw: Pixel
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
 
-let drawing = false
+let drawing_touch = false
 
 let subscribed_to_events = false
 /**
@@ -21,12 +30,33 @@ function subscribeToEvents(): void {
   if (subscribed_to_events) return
 
   canvas.addEventListener('mousemove', (e => {
-    if (mouse) last_mouse = {x: mouse.x, y: mouse.y}
+    if (mouse) last_mouse = mouse
     mouse = {x: e.offsetX, y: e.offsetY}
   }))
 
   canvas.addEventListener('click', (e => {
-    drawing = !drawing
+    if (canvas_mode === "Pencil") canvas_mode = null
+    else canvas_mode = "Pencil"
+    e.preventDefault()
+  }))
+
+  canvas.addEventListener('touchstart', (e => {
+    drawing_touch = true
+    e.preventDefault()
+  }))
+
+  canvas.addEventListener('touchend', (e => {
+    drawing_touch = false
+
+    // This needs an offset from the pageX and Y to work properly.
+    if (mouse) last_mouse = mouse
+    mouse = {x: e.targetTouches[0].pageX, y: e.targetTouches[0].pageY}
+
+    e.preventDefault()
+  }))
+
+  canvas.addEventListener('touchmove', (e => {
+    e.touches
   }))
 
   subscribed_to_events = true
@@ -58,6 +88,13 @@ function pixelsOverlapping(first, second): boolean {
 
 }
 
+function pencilMode() {
+  const hex = "#9342f5"
+  ctx.fillStyle = hex
+  ctx.strokeStyle = hex
+  connectPixels(last_draw, draw)
+}
+
 function connectPixels(prev, curr) {
   if (!prev || !curr) return
 
@@ -69,14 +106,10 @@ function connectPixels(prev, curr) {
 }
 
 function update() {
-  const hex = "#9342f5"
   draw = mouse
-  if (drawing) {
-    ctx.fillStyle = hex
-    ctx.strokeStyle = hex
-    connectPixels(last_draw, draw)
-  }
+  canvasHandlers[canvas_mode]?.()
   last_draw = draw
+
   requestAnimationFrame(update)
 }
 
