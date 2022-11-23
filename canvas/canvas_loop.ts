@@ -3,10 +3,8 @@ interface Pixel {
   y: number
 }
 
-type CanvasMode = "Pencil" | "Eraser" | null
-
+export type CanvasMode = "Pencil" | "Eraser" | null
 let canvas_mode: CanvasMode = null
-
 const canvasHandlers: Record<CanvasMode, () => void> = {
   "Pencil": pencilMode,
   "Eraser": () => {}
@@ -76,7 +74,6 @@ function pixelsOverlapping(first, second): boolean {
   if (Math.abs(first.x - second.x) < HITBOX_SIZE && Math.abs(first.y - second.y) < HITBOX_SIZE) {
     return true
   }
-
 }
 
 function pencilMode() {
