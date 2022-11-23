@@ -35,8 +35,6 @@ function subscribeToEvents(): void {
   }))
 
   canvas.addEventListener('pointerdown', (e => {
-    if (canvas_mode === "Pencil") canvas_mode = null
-    else canvas_mode = "Pencil"
   }))
 
   canvas.addEventListener('pointerup', (e => {
@@ -108,4 +106,8 @@ function update() {
 
 export function clear_canvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
+}
+
+export function setCanvasMode(mode: CanvasMode) {
+  canvas_mode = mode
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import canvas_loop, { clear_canvas } from "../canvas/canvas_loop"
+import canvas_loop, { clear_canvas, setCanvasMode } from "../canvas/canvas_loop"
 
 export default function Terminal() {
   useEffect(() => {
@@ -12,7 +12,10 @@ export default function Terminal() {
 
   return (
     <div>
-      <button onClick={trashClick}>trash</button>
+      <div className="button-panel">
+        <button onClick={trashClick}>trash</button>
+        <button onClick={() => setCanvasMode('Pencil')}>pencil</button>
+      </div>
       <canvas className="terminal"></canvas>
     </div>
   )
