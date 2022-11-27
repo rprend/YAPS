@@ -5,6 +5,7 @@ import Contact from '../components/contact'
 import { HomePage } from '../components/homepage'
 import { PageType } from '../components/pages'
 import Sidebar from '../components/sidebar'
+import Canvas from '../components/canvas'
 
 
 export default function Home(): JSX.Element {
@@ -31,6 +32,9 @@ export default function Home(): JSX.Element {
           <HomePage showing={Page === 'home'}></HomePage>
           <Blog showing={Page === 'blog'}></Blog>
           <Contact showing={Page === 'contact'}></Contact>
+        </div>
+        <div>
+          <Canvas />
         </div>
       </main>
   </>

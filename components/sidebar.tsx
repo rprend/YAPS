@@ -16,13 +16,15 @@ export default function Sidebar(props: SidebarProps): JSX.Element {
 
   return (
     <div className="sidebar">
-      <Image
-        className='ryan-image'
-        src={ryan}
-        alt="Ponde.me"
-        width={80}
-        height={80}
-      />
+      <div className="image-container">
+        <Image
+          className='ryan-image'
+          src={ryan}
+          alt="Ponde.me"
+          width={80}
+          height={80}
+        />
+      </div>
       <div className='sidebar-links'>
         <div><a
           onClick={() => changePage('home')}

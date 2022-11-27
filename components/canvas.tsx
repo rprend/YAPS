@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import canvas_loop, { clear_canvas, setCanvasMode, CanvasMode } from "../canvas/canvas_loop"
 
-export default function Terminal() {
+export default function Canvas() {
   let canvas_mode: CanvasMode = null
 
   useEffect(() => {
@@ -23,7 +23,8 @@ export default function Terminal() {
   }
 
   return (
-    <div>
+    <div className="interactive-panel">
+      <div><h2>drawing canvas</h2></div>
       <div className="button-panel">
         <button onClick={trashClick}>trash</button>
         <button
@@ -32,7 +33,7 @@ export default function Terminal() {
         <button onClick={() => toggleMode("Text")}>text</button>
       </div>
       <div tabIndex={1} className="canvas-wrapper">
-        <canvas className="terminal"/>
+        <canvas id="canvas"/>
       </div>
     </div>
   )

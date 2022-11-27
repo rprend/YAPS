@@ -66,7 +66,7 @@ function subscribeToEvents(): void {
 
 export default function init() {
   // Can we assume guarantee that there is only one Element with this class?
-  canvas = document.getElementsByClassName("terminal").item(0) as HTMLCanvasElement
+  canvas = document.getElementById("canvas") as HTMLCanvasElement
   ctx = canvas.getContext("2d")
 
   wrapper = document.getElementsByClassName("canvas-wrapper").item(0) as HTMLDivElement
