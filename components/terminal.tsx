@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import canvas_loop, { clear_canvas, setCanvasMode, CanvasMode } from "../canvas/canvas_loop"
 
 export default function Terminal() {
@@ -29,8 +29,11 @@ export default function Terminal() {
         <button
           onClick={() => toggleMode("Pencil")}
         >pencil</button>
+        <button onClick={() => toggleMode("Text")}>text</button>
       </div>
-      <canvas className="terminal"></canvas>
+      <div tabIndex={1} className="canvas-wrapper">
+        <canvas className="terminal"/>
+      </div>
     </div>
   )
 }

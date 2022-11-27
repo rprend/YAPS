@@ -2,9 +2,27 @@
   display: flex;
   margin: 0 140px;
 
-  .terminal {
-    background-color: #000;
-    color: white
+  .canvas-wrapper {
+    position: relative;
+
+    .terminal {
+      background-color: #000;
+      color: white
+    }
+    input {
+      position: absolute;
+
+      z-index: 2;
+
+      background-color: #000;
+      color: white;
+      border: none;
+    }
+
+    input:focus {
+      outline: none;
+      border: white solid 1px;
+    }
   }
 
   .homepage {
