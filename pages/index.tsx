@@ -1,9 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import { Blog } from '../components/blog'
-import Contact from '../components/contact'
 import { HomePage } from '../components/homepage'
-import { PageType } from '../components/pages'
 import Navbar from '../components/navbar'
 
 export default function Home(): JSX.Element {
