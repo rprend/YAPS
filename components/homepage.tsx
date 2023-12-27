@@ -1,11 +1,11 @@
 import { PostType } from "../interfaces/post";
+import BlogList from "./BlogList";
 
 interface HomePageProps {
   posts: PostType[]
 }
 
 export function HomePage(props: HomePageProps): JSX.Element {
-  console.log(props)
   return (
     <article className="prose prose-slate mx-auto mb-12">
       <h3>Ryan&apos;s homepage</h3>
@@ -27,17 +27,7 @@ export function HomePage(props: HomePageProps): JSX.Element {
         </div>
       </div>
       <h3>Blog</h3>
-      <p>I write about things.</p>
-      {/* Make a for loop which goes over all of the posts*/}
-      <div>
-        {props.posts.map((post) => (
-          <div key={post.slug} className="flex flex-row justify-between">
-            <p><a href={`/blog/${post.slug}`}>{post.title}</a></p>
-            <p>{post.date}</p>
-          </div>
-        ))}
-      </div>
-
+      <BlogList posts={props.posts} />
     </article>
   )
 }

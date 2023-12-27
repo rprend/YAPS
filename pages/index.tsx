@@ -22,7 +22,6 @@ export default function Home(props: HomeProps): JSX.Element {
       />
     </div>
   )
-
 }
 
 // Static generation

@@ -18,7 +18,7 @@ export default function Post(props: PostProps) {
         <meta name="description" content="my personal site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      <Navbar showBackButton={true}/>
       <BlogPost content={props.post.content} />
     </div>
   )

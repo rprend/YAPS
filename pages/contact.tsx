@@ -9,9 +9,11 @@ export default function Contact(): JSX.Element {
       <meta name="description" content="my personal site" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <Navbar />
-    <main className="">
-    </main>
+    <Navbar showBackButton={true} />
+    <article className="prose">
+      <h1>Contact</h1>
+      <p>Coming soon!</p>
+    </article>
   </div>
   )
 }
