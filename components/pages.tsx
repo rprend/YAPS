@@ -1,1 +1,0 @@
-export type PageType = 'home' | 'contact' | 'blog'

@@ -1,22 +1,30 @@
-import { Category } from "./category";
-import classnames from 'classnames'
-import Canvas from "./canvas";
-
-export interface HomePageProps {
-  showing: boolean
-}
-
-export function HomePage(props: HomePageProps): JSX.Element {
+export function HomePage(): JSX.Element {
   return (
-    <div className={classnames({hidden: !props.showing, "homepage": true})}>
-      <h1>Ryan&apos;s homepage</h1>
-      <Category name="code">
-        <div>hjon hjon</div>
-      </Category>
-      <Category name="music">
-        <div>music. a youtube embed pollutes my site with blocked ad requests so you&apos;ll just have to imagine my <a target="blank" href="https://www.youtube.com/watch?v=zDsDCRVVCYw&list=PL-evJxq7wCJPwhV7P91uooPOauMSX-UbE">music</a></div>
-        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL-evJxq7wCJPwhV7P91uooPOauMSX-UbE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-      </Category>
-    </div>
+    <article className="prose prose-slate">
+      <h3>Ryan&apos;s homepage</h3>
+      <p>Hi, I&apos;m Ryan. I&apos;m a software engineer at <a href="https://www.bubble.io/" target="_blank" rel="noreferrer">Bubble</a> in New York.</p>
+      <h3>Projects</h3>
+      <p>Here are some of the things I&apos;ve worked on:</p>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-gray-100 p-4">
+          <h4>prendergast.dev</h4>
+          <p>This site! It&apos;s built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
+        </div>
+        <div className="bg-gray-100 p-4">
+          <h4>calvino editor</h4>
+          <p>This site! It&apos;s built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
+        </div>
+        <div className="bg-gray-100 p-4">
+          <h4>prendergast.dev</h4>
+          <p>This site! It&apos;s built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
+        </div>
+        <div className="bg-gray-100 p-4">
+          <h4>prendergast.dev</h4>
+          <p>This site! It&apos;s built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
+        </div>
+      </div>
+      <h3>Blog</h3>
+      <p>I write about things.</p>
+    </article>
   )
 }

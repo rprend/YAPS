@@ -4,40 +4,21 @@ import { Blog } from '../components/blog'
 import Contact from '../components/contact'
 import { HomePage } from '../components/homepage'
 import { PageType } from '../components/pages'
-import Sidebar from '../components/sidebar'
-import Canvas from '../components/canvas'
-
+import Navbar from '../components/navbar'
 
 export default function Home(): JSX.Element {
-  const [Page, setPage] = useState<PageType>('home')
-
-  function setCurrentPage(page: PageType) {
-    setPage(page)
-  }
-
   return (
-    <>
+    <div className='container mx-auto max-w-5xl px-4 mt-6'>
       <Head>
-        <title>Ponde.me</title>
-        <meta name="description" content="making things work" />
+        <title>prendergast.dev</title>
+        <meta name="description" content="my personal site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="main">
-        <Sidebar
-          setPage={setCurrentPage}
-          page={Page}
-        ></Sidebar>
-        <div className="content">
-          <HomePage showing={Page === 'home'}></HomePage>
-          <Blog showing={Page === 'blog'}></Blog>
-          <Contact showing={Page === 'contact'}></Contact>
-        </div>
-        <div>
-          <Canvas />
-        </div>
+      <Navbar />
+      <main className="">
+        <HomePage />
       </main>
-  </>
+    </div>
   )
 
 }
