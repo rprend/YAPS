@@ -12,7 +12,8 @@ export default function Contact(): JSX.Element {
     <Navbar showBackButton={true} />
     <article className="prose">
       <h1>Contact</h1>
-      <p>Coming soon!</p>
+      <p>Ryan Prendergast</p>
+      <p>Contact me at rprendergast1121 at gmail</p>
     </article>
   </div>
   )
