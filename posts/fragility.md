@@ -1,6 +1,6 @@
 ---
 title: 'Bad moods as a fragility test'
-date: '2024-04-20'
+date: '04-20-2024'
 slug: 'fragility'
 ---
 
