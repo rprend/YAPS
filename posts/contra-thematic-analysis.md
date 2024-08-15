@@ -1,7 +1,7 @@
 ---
 title: 'Contra Thematic Analysis'
 date: '08-14-2024'
-slug: 'thematic-analysis'
+slug: 'contra-thematic-analysis'
 ---
 
 # Contra Thematic Analysis, or: How i learned to stop worrying and memorize facts
