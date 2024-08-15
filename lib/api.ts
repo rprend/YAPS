@@ -29,5 +29,13 @@ export function getAllPosts() {
   const posts = postNames
     .map((name) => getPostMetadata(name))
 
+  posts.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1
+    } else {
+      return -1
+    }
+  })
+
   return posts
 }
